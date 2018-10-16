@@ -21,3 +21,9 @@
 - [Android application design with styles and themes - Tutorial](http://www.vogella.com/tutorials/AndroidStylesThemes/article.html)
 - [Coordinate Layout](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout)
 - [Mastering the Coordinator Layout](http://saulmm.github.io/mastering-coordinator)
+
+### Reviews by Udacity Team
+
+<img src="https://user-images.githubusercontent.com/23660137/47023191-bbb2b080-d17c-11e8-8b35-76ea899f6971.png" height=400/>
+<img src="https://user-images.githubusercontent.com/23660137/47023074-84440400-d17c-11e8-9981-798c00c54a4b.png" height=400/>
+<img src="https://user-images.githubusercontent.com/23660137/47023136-9de54b80-d17c-11e8-9551-cfb9b3a05e87.png" height=400/>
