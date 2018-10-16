@@ -1,0 +1,104 @@
+buildscript {
+  repositories {
+    mavenCentral()
+      maven {
+          url 'https://maven.google.com/'
+          name 'Google'
+      }
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.3.2'
+    classpath 'me.tatarka:gradle-retrolambda:3.6.1'
+  }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+repositories {
+  mavenCentral()
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
+}
+
+android {
+  compileSdkVersion rootProject.ext.androidCompileSdkVersion
+  buildToolsVersion rootProject.ext.androidBuildToolsVersion
+
+  defaultConfig {
+    minSdkVersion rootProject.ext.androidMinSdkVersion
+    targetSdkVersion rootProject.ext.androidTargetSdkVersion
+  }
+
+  compileOptions {
+    targetCompatibility 1.8
+    sourceCompatibility 1.8
+  }
+
+  packagingOptions {
+    exclude 'META-INF/rxjava.properties'
+  }
+}
+
+dependencies {
+
+  // Lib definitions
+  def supportLib = rootProject.ext.supportDependencies
+  def rx = rootProject.ext.rxDependancies
+  def dagger = rootProject.ext.daggerDependancies
+  def retrofit = rootProject.ext.retrofitDependancies
+  def okhttp = rootProject.ext.okhttpDependancy
+  def butterKnife = rootProject.ext.butterKnifeDependancies
+  def autoValue = rootProject.ext.autoValueDependancies
+  def sqlBrite = rootProject.ext.sqlBriteDependancy
+  def moshi = rootProject.ext.moshiDependancy
+  def timber = rootProject.ext.timberDependancy
+  def glide = rootProject.ext.glideDependancy
+  def stetho = rootProject.ext.stethoDependancies
+  
+  // Support Libraries
+  compile supportLib.appCompat
+  compile supportLib.cardView
+  compile supportLib.design
+  compile supportLib.palette
+  compile supportLib.recyclerView
+  compile supportLib.supportV4
+  compile supportLib.supportV13
+
+  // Rx
+  compile rx.rxAndroid
+  compile rx.rxJava
+  compile rx.rxJavaInterop
+  compile rx.rxRelay
+
+  // Dagger
+  compile dagger.dagger
+  annotationProcessor dagger.daggerApt
+
+  // Retrofit
+  compile retrofit.retrofit
+  compile retrofit.rxJavaAdapter
+  compile retrofit.moshiConverter
+
+  // ButterKnife
+  compile butterKnife.butterknife
+  annotationProcessor butterKnife.butterknifeApt
+
+  // AutoValue
+  annotationProcessor autoValue.autoValueApt
+  provided autoValue.autoValueProvided
+  annotationProcessor autoValue.moshiApt
+  provided autoValue.moshiProvided
+
+  // Stetho
+  compile stetho.stetho
+  compile stetho.networkHelper
+
+  compile okhttp
+  compile sqlBrite
+  compile moshi
+  compile timber
+  compile glide
+}
